@@ -7,16 +7,16 @@ import EmailTextInput from './EmailInput';
 import LoginButton from './LoginButton';
 import DeviceMeta from './List';
 import { useNavigation } from '@react-navigation/core';
+import { ROUTES } from '../../App';
 
 interface Props {
 }
 
 export default function Login({ }: Props) {
   const navigation = useNavigation();
-  const onSignUp = () => navigation.navigate('SignUp')
-  const onLogin = () => {
-    return Alert.alert('validate credentails, onSuccess navigate to homeScreen');
-  };
+  const onSignUp = () => navigation.navigate(ROUTES.SignUp);
+  const onLogin = () => navigation.navigate(ROUTES.Home);
+  
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={require('../../assets/react.png')} />
