@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Button} from 'react-native';
+import {StyleSheet, View, Button, Alert} from 'react-native';
 import { textInputMaxWidth, textInputMinWidth } from '../constants/Style';
 
 export interface Props {
@@ -17,7 +17,7 @@ export class SignUpButton extends React.Component<Props, State> {
 
   onSignUp(): Promise<any> {
     return new Promise((resolve, reject) => {
-      console.log('TODO: Implement onSignUp()')
+      Alert.alert('TODO: Implement onSignUp()')
     })
   }
 

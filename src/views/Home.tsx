@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Alert, FlatList, Platform, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, Alert, Platform, Dimensions } from 'react-native';
 import { IUser } from '../models/User';
 import { OS } from '../constants/Device';
 import { DefaultUser } from '../constants/NewUser';
@@ -8,7 +8,8 @@ import { EmailTextInput } from '../components/EmailInput';
 import { PasswordTextInput } from '../components/PasswordInput';
 import { SignUpButton } from '../components/SignUpButton';
 import { pallete } from '../constants/Style';
-import { Item, ListItem } from '../components/Item';
+import { Item } from '../components/Item';
+import { DeviceMeta } from '../components/List';
 
 export interface Props {
   platformOS: OS;
@@ -35,8 +36,9 @@ export class Home extends React.Component<Props, State> {
   getDeviceMeta(): ReadonlyArray<Item> {
     return [
       { title: 'Platform OS', data: Platform.OS },
-      { title: 'Version', data: Platform.Version.toString() },
-      { title: 'Screen Dimension', data: `${Dimensions.get('screen').width} x ${Dimensions.get('screen').height}` }
+      { title: 'Version', data: `${Platform.Version}` },
+      { title: 'Screen Dimension', data: `${Dimensions.get('screen').width} x ${Dimensions.get('screen').height}` },
+      { title: 'Window Dimension', data: `${Dimensions.get('window').width} x ${Dimensions.get('window').height}` }
     ]
   }
 
@@ -63,10 +65,6 @@ export class Home extends React.Component<Props, State> {
           source={require('../../assets/react.png')}
         />
 
-        <Text style={styles.greeting}>
-          {'Good Morning'}
-        </Text>
-
         <EmailTextInput />
         <PasswordTextInput />
 
@@ -75,16 +73,9 @@ export class Home extends React.Component<Props, State> {
         <LoginButton email={this.email} password={this.passwordInput} color={pallete.primary} />
         <SignUpButton email={this.email} password={this.passwordInput} color={pallete.lightGray} />
         
-        <View style={styles.deviceMeta}>
-          <Text>
-            { 'Device Meta' }
-          </Text>
-          <FlatList
-            data={this.getDeviceMeta()}
-            renderItem={({ item }) => <ListItem item={item} />}
-            keyExtractor={(item: Item) => item.title}
-          />
-        </View>
+        <View style={styles.spacer}></View>
+
+        <DeviceMeta/>
         
       </View>
     );
@@ -95,14 +86,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  greeting: {
-    flex: 1,
-    color: '#000',
-    fontWeight: '600',
-    marginBottom: 24,
-    alignSelf: 'center',
-    backgroundColor: '#FFF'
-  },
   logo: {
     height: 80,
     width: 80,
@@ -111,8 +94,5 @@ const styles = StyleSheet.create({
   },
   spacer: {
     height: 16
-  },
-  deviceMeta: {
-
   }
 });

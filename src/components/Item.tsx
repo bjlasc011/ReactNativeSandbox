@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     padding: 8
   },
   data: {
-    borderLeftColor: pallete.lightGray,
-    borderLeftWidth: 1
+    flex: 1,
+    padding: 8
   }
 });

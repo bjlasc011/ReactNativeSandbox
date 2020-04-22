@@ -1,7 +1,7 @@
 import React from 'react';
 import { Home } from './src/views/Home';
 import { PlatformMeta, statusBarHeight } from './src/constants/Device';
-import { StyleSheet, View, Button, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { AppMenu } from './src/components/AppMenu';
 
 export default function App() {
