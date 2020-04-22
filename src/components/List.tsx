@@ -2,36 +2,30 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList, Platform, Dimensions } from 'react-native';
 import { Item, ListItem } from '../components/Item';
 
-export interface Props {
+function getDeviceMeta(): ReadonlyArray<Item> {
+  const screen = Dimensions.get('screen');
+  const window = Dimensions.get('window');
+  return [
+    { title: 'Platform OS', data: Platform.OS },
+    { title: 'Version', data: `${Platform.Version}` },
+    { title: 'Screen Dimension', data: `${screen.width} x ${screen.height}` },
+    { title: 'Window Dimension', data: `${window.width} x ${window.height}` }
+  ]
 }
 
-interface State {
-}
-
-export class DeviceMeta extends React.Component<Props, State> {
-  getDeviceMeta(): ReadonlyArray<Item> {
-    return [
-      { title: 'Platform OS', data: Platform.OS },
-      { title: 'Version', data: `${Platform.Version}` },
-      { title: 'Screen Dimension', data: `${Dimensions.get('screen').width} x ${Dimensions.get('screen').height}` },
-      { title: 'Window Dimension', data: `${Dimensions.get('window').width} x ${Dimensions.get('window').height}` }
-    ]
-  }
-  
-  render() {
-    return (
-      <View style={styles.deviceMeta}>
+export default function DeviceMeta() {
+  return (
+    <View style={styles.deviceMeta}>
       <Text style={styles.metaHeader}>
-        { 'Device Meta' }
+        {'Device Meta'}
       </Text>
       <FlatList
-        data={this.getDeviceMeta()}
+        data={getDeviceMeta()}
         renderItem={({ item }) => <ListItem item={item} />}
         keyExtractor={(item: Item) => item.title}
       />
-      </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -39,7 +33,7 @@ const styles = StyleSheet.create({
     height: 300
   },
   metaHeader: {
-    fontWeight: 'bold', 
+    fontWeight: 'bold',
     padding: 8
   }
 });

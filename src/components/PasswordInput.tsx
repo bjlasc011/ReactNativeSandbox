@@ -2,34 +2,18 @@ import React from 'react';
 import { TextInput} from 'react-native';
 import { appStyles } from '../constants/Style';
 
-export interface Props { }
-
-interface State {
-  password: string;
+export interface Props { 
+  placeholder: string
 }
 
-export class PasswordTextInput extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      password: ''
-    };
-  }
-
-  validate(): boolean {
-    return true; // TODO: add validation
-  }
-
-  render(): any {
+export default function PasswordTextInput({placeholder}: Props) {
     return (
       <TextInput
-        placeholder={' password'}
+        placeholder={' ' + placeholder}
         style={appStyles.textInput}
         maxLength={255}
         autoCorrect={false}
         secureTextEntry={true}>
       </TextInput>
     );
-  }
 }

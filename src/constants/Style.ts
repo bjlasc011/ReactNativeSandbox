@@ -13,7 +13,8 @@ export const pallete = {
   disabled: '#D8D8D8',
   gray: '#888',
   lightGray: '#CCC',
-  font: '#242424'
+  font: '#242424',
+  appBackground: '#F5F5F5'
 }
 
 export const appStyles = {

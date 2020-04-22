@@ -1,44 +1,31 @@
 import React from 'react';
-import {StyleSheet, View, Button, Alert} from 'react-native';
+import {StyleSheet, View, Button, NativeSyntheticEvent, NativeTouchEvent} from 'react-native';
 import { textInputMaxWidth, textInputMinWidth } from '../constants/Style';
+import { useNavigation } from '@react-navigation/core';
 
 export interface Props {
-  email: string,
-  password: string,
-  color: string
- }
+  color: string,
+  onPress: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void
+}
 
-interface State { }
-
-export class LoginButton extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
-
-  onLogin(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      Alert.alert('TODO: Implement onLogin()');
-    })
-  }
-
-  render(): any {
+export default function LoginButton({color, onPress}: Props) {
+    const navigation = useNavigation();
     return (
       <View style={styles.container}>
         <Button
           title="Login"
-          onPress={this.onLogin}
+          onPress={onPress}
           accessibilityLabel="login"
-          color={this.props.color}
+          color={color}
         />
       </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({
   container: {
     paddingBottom: 8,
-    height: 60,
+    height: 40,
     maxWidth: textInputMaxWidth,
     minWidth: textInputMinWidth
   },
