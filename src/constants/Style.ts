@@ -14,7 +14,8 @@ export const pallete = {
   gray: '#888',
   lightGray: '#CCC',
   font: '#242424',
-  appBackground: '#F5F5F5'
+  appBackground: '#F5F5F5',
+  yellow: '#fcc603'
 }
 
 export const appStyles = {
