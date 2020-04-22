@@ -25,7 +25,7 @@ export default function App() {
         <Stack.Screen
           name={ROUTES.Home}
           component={HomeScreen}
-          options={{ title: 'React Native' }}
+          options={{ title: 'React Native', headerLeft: null }}
         />
       </Stack.Navigator>
     </NavigationContainer>
