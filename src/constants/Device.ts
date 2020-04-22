@@ -1,4 +1,6 @@
 import { Platform } from 'react-native';
+import Constants from 'expo-constants';
+
 
 export enum OS {
   ios = 'ios',
@@ -21,6 +23,8 @@ export interface PlatformMeta {
   isAndroid: boolean,
   isWindows: boolean
 }
+
+export const statusBarHeight = Constants.statusBarHeight;
 
 function ConvertToOS(os: string): OS {
   switch(os) {

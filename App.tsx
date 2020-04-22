@@ -1,27 +1,42 @@
 import React from 'react';
-import { Home } from './views/Home';
-import { PlatformMeta } from './constants/Device';
-import { StyleSheet, View } from 'react-native';
-import { AppMenu } from './components/AppMenu';
+import { Home } from './src/views/Home';
+import { PlatformMeta, statusBarHeight } from './src/constants/Device';
+import { StyleSheet, View, Button, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { AppMenu } from './src/components/AppMenu';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.menuContainer}>
+    <TouchableWithoutFeedback onPress={hideKeyboard}>
+      <View style={styles.container}>
+      <View style={styles.menu}>
         <AppMenu isLoggedIn={false}/>
       </View>
-      <Home platformOS={PlatformMeta.platform}/>
+      <View style={styles.home}>
+        <Home platformOS={PlatformMeta.platform}/>
+      </View>
     </View>
+    </TouchableWithoutFeedback>
   );
+}
+
+function hideKeyboard() {
+  Keyboard.dismiss();
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor: '555555'
+    backgroundColor: '#F5F5F5',
+    paddingTop: statusBarHeight,
+    paddingBottom: 16,
+    paddingHorizontal: 16,
+    flex: 1
   },
-  menuContainer: {
-    alignContent: 'flex-end'
+  menu: {
+    alignItems: 'flex-end',
+    alignSelf: 'stretch'
+  },
+  home: {
+    alignItems: 'center',
+    alignSelf: 'stretch'
   }
 });

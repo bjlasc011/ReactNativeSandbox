@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Button} from 'react-native';
+import { textInputMaxWidth, textInputMinWidth } from '../constants/Style';
 
 export interface Props {
   email: string,
@@ -22,7 +23,7 @@ export class LoginButton extends React.Component<Props, State> {
 
   render(): any {
     return (
-      <View style={styles.button}>
+      <View style={styles.container}>
         <Button
           title="Login"
           onPress={this.onLogin}
@@ -35,10 +36,10 @@ export class LoginButton extends React.Component<Props, State> {
 }
 
 const styles = StyleSheet.create({
-  button: {
-    flex: 1,
-    paddingVertical: 0,
-    minWidth: 200,
-    margin: 8
+  container: {
+    paddingBottom: 8,
+    height: 60,
+    maxWidth: textInputMaxWidth,
+    minWidth: textInputMinWidth
   },
 });

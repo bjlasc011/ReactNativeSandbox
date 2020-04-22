@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     minHeight: 44,
-    flex: 100,
+    flex: 1,
     flexDirection: 'row'
   }
 });
