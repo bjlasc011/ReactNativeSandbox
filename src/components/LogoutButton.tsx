@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button } from "react-native";
+import { Button, View } from "react-native";
 import { useNavigation } from '@react-navigation/core';
 import { ROUTES } from '../../App';
 import { pallete } from '../constants/Style';
@@ -7,14 +7,12 @@ import { pallete } from '../constants/Style';
 export default function LogoutButton() {
   const navigation = useNavigation();
   return (
-    <Button
-      color={pallete.lightGray}
-      onPress={() => navigation.navigate(ROUTES.Login)}
-      title="Logout"
-    />
+    <View style={{marginRight: 16}}>
+      <Button
+        color={pallete.lightGray}
+        onPress={() => navigation.navigate(ROUTES.Login)}
+        title="Logout"
+      />
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-
-});

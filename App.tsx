@@ -1,11 +1,11 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 import HomeScreen from './src/screens/HomeScreen';
-import { ThemeProvider, Theme, Button } from 'react-native-elements';
+import { ThemeProvider, Theme } from 'react-native-elements';
 import LogoutButton from './src/components/LogoutButton';
 
 const theme: Theme = {
