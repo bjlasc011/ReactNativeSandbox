@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, Alert, ScrollView, View } from 'react-native';
-import ProductCard from '../components/Card';
+import ProductCard from '../components/ProductCard';
 
 // just placeholder data for demonstration
 const products = [
@@ -15,7 +15,7 @@ const products = [
     uri: require('../../assets/react.png'),
     featuredSubtitle: "React image 2",
     description: "Description of the product",
-    rating: 4,
+    rating: 2.25,
     price: 35.22
   },
   {
@@ -29,7 +29,7 @@ const products = [
     uri: require('../../assets/react.png'),
     featuredSubtitle: "React image 4",
     description: "This is a really long description that might change the styling of the cards, but it should wrap.",
-    rating: 2.25,
+    rating: 5,
     price: 6.49
   }
 ]
@@ -37,9 +37,6 @@ const products = [
 export default function HomeScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text>
-        Home Screen
-      </Text>
       {
         products.map((product, index) => {
           return (
@@ -55,14 +52,14 @@ export default function HomeScreen() {
           )
         })
       }
-      <View style={styles.spacer}></View>
+      <View style={styles.spacer} />
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     alignSelf: 'center'
   },

@@ -23,8 +23,6 @@ export function SignUpButton({color, onPress}: Props) {
 const styles = StyleSheet.create({
   container: {
     paddingBottom: 8,
-    height: 40,
-    maxWidth: textInputMaxWidth,
-    minWidth: textInputMinWidth
+    height: 40
   }
 });

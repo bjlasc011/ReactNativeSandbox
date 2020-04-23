@@ -10,15 +10,21 @@ export interface Props {
 export default function StarRating({ rating }: Props) {
   return (
     <View style={styles.row}>
-      {[1, 2, 3, 4, 5].map(star => {
-        if (star <= rating) {
-          return <Icon name="star" color={pallete.yellow} key={star}></Icon>
-        } else if (star > rating && rating > star - 1) {
-          return <Icon name="star-half" color={pallete.yellow} key={star}></Icon>
-        } else {
-          return <Icon name="star-border" color={pallete.yellow} key={star}></Icon>
-        }
-      })}
+      {
+        [1, 2, 3, 4, 5].map(star => {
+          let icon = 'star';
+          let color = pallete.yellow;
+          if (star > rating) {
+            if (rating > star - 1) {
+              icon = "star-half";
+            } else {
+              icon = "star-border";
+              color = pallete.lightGray;
+            }
+          }
+          return <Icon name={icon} color={color} key={star}></Icon>
+        })
+      }
     </View>
   );
 }
